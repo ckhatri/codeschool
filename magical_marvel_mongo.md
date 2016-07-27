@@ -36,4 +36,4 @@
 
 # 3.1 Query Operators
 * can pass multiple queries, by passing in comma-separated queries
-* 
+* comparison query operators match docs based on comparisons
