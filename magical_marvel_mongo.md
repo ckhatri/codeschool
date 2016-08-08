@@ -37,3 +37,38 @@
 # 3.1 Query Operators
 * can pass multiple queries, by passing in comma-separated queries
 * comparison query operators match docs based on comparisons
+
+# 3.8 Customizing Queries
+* projections allow you to specify what fields you want so you can create custom results
+* if you want to exclude a few fields set them to false, you'll get the rest
+* if you want specific fields set those to true, rest will be false except id
+* can only mix true false with _id in there.
+
+# 4.1 Data Modeling
+* cautious to keep duplicated data, because it's hard to keep consistent throughout the database
+* instead of embedding vendor info, can create a vendors collection and reference vendor document in each potion document.
+* embedding:
+	* only need one query
+	* atomic write operations
+* mongo doesn't recognize document relationships, so there aren't transactions
+
+# 4.8 Data Modeling Decisions
+* two options, embedding vs referencing
+* data thats frequently used together will benefit from being embedded
+* the larger the data size, the better referencing is ex. 100+ is when you should consider referencing
+* will data change often? if so you should reference, otherwise embed.
+* potion -> comments barely change so embedding
+* user info -> reference because it'll change often or it can
+* generally embedding is the best starting point
+* consider referencing with large data sizes
+
+# 5.1 Common Aggregations
+* mongo comes with an aggregation framework which manipulates data before you get it
+* accumulator takes a single expression and computes the expression for grouped documents
+* when fields begin with a $ they are operators that a performing a task, if a value starts with a dollar sign it's pointing to the value
+* shits dope.
+
+# 5.7 The Aggregation Pipeline
+* aggregate method acts like pipeline, can pass data through many stages to change it along the way
+* $match is a query and will only pass documents if they meet specific conditions
+* $project allows you to send only the fields you want, so when you group by grade say, you don't need id
