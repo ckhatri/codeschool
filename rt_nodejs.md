@@ -13,3 +13,4 @@
 # 2.1 Events
 * events in dom, dom triggers events ex. click, submit, hover
 * request listener function is automatically added to request event
+* 
